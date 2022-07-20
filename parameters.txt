@@ -1,0 +1,6 @@
+img_dir=/home/ubt/workspace/TensorRT/OCR/test_imgs
+rec_onnx_path=../models/ch_rec.onnx
+rec_engine_path=../engines/ch_rec.engine
+
+det_onnx_path=../models/det.onnx
+det_engine_path=../engines/det.engine

@@ -1,0 +1,3 @@
+/home/ubt/workspace/TensorRT/OCR/build/CMakeFiles/rebuild_cache.dir
+/home/ubt/workspace/TensorRT/OCR/build/CMakeFiles/rec.dir
+/home/ubt/workspace/TensorRT/OCR/build/CMakeFiles/edit_cache.dir
