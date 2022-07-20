@@ -15,3 +15,6 @@
  make -j
  ./rec
 ```
+## Result
+![image](https://user-images.githubusercontent.com/87298337/179940172-4182773c-5786-4d5e-a1e1-8a63e98b4f10.png)
+
