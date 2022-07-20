@@ -10,6 +10,7 @@
 * modify the path parameters.txt in **main.cpp**
 * modify the img_dir in **parameters.txt**
 ```
+ mkdir build
  cd build
  cmake ..
  make -j
