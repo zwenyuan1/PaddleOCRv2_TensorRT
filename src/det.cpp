@@ -37,19 +37,9 @@ void TextDetect::Model_Infer(cv::Mat& img, vector<vector<vector<int>>>& boxes, v
     this->normalize_op_.Run(&resize_img, this->mean_, this->scale_, true);
 
     auto preprocess_end = std::chrono::steady_clock::now();
-    // write resize_img
-    ofstream img_file("./ocr_resize_img.csv");
-    for(int i=0; i<resize_img.rows; i++){
-        for(int j=0; j<resize_img.cols; j++){
-            img_file<< resize_img.at<Vec3f>(i,j)[0] << ',';
-        }
-        img_file<< '\n';
-    }
-    img_file.close();
 
     //////////////////////// inference //////////////////////////
     void* buffers[2];
-
     // 为buffer[0]指针（输入）定义空间大小
     float *inBlob = new float[1 * 3 * resize_img.rows * resize_img.cols];
     this->permute_op_.Run(&resize_img, inBlob);
@@ -104,14 +94,6 @@ void TextDetect::Model_Infer(cv::Mat& img, vector<vector<vector<int>>>& boxes, v
     int n2 = output_shape[2];
     int n3 = output_shape[3];
     int n = n2 * n3; // output_h * output_w
-
-    ofstream file("./result.csv");
-    for (int i = 0; i < n2; i++){
-        for(int j=0; j< n3; j++)
-            file << outBlob[i*n3+j]<<",";
-        file<<'\n';
-    }
-    file.close();
 
     std::vector<float> pred(n, 0.0);
     std::vector<unsigned char> cbuf(n, ' ');
